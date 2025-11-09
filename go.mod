@@ -189,3 +189,7 @@ require (
 	gotest.tools/v3 v3.5.1 // indirect
 	lukechampine.com/uint128 v1.2.0 // indirect
 )
+// Replace problematic dependencies
+replace github.com/chzyer/readline => github.com/chzyer/readline v1.0.0
+replace github.com/chzyer/logex => github.com/chzyer/logex v1.0.0
+replace github.com/chzyer/test => github.com/chzyer/test v0.0.0
