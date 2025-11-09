@@ -1,17 +1,17 @@
-Zen Network - Quantum-Resistant Layer-1 Blockchain
-==================================================
+Zen Network - Layer-1 Blockchain
+================================
 
 What is Zen Network?
 --------------------
 
-Zen Network is a next-generation Layer-1 blockchain platform built in Go, designed for AI-driven decentralized applications. It combines high throughput, quantum-resistant security, and low fees.
+Zen Network is a next-generation Layer-1 blockchain platform built in Go, designed for AI-driven decentralized applications. It combines high throughput, security, and low fees.
 
 Key Features
 ------------
 
 - High Performance: 10,000-50,000 TPS with parallel execution
 - Low Fees: <0.0001 ZEN per transaction
-- Quantum-Resistant Security: EdDSA, Blake3, BLS, Falcon/Dilithium
+- Security: EdDSA, Blake3, BLS
 - AI-Native Oracles: Machine learning powered data feeds
 - Fixed Supply: 1,000,000,000 ZEN tokens (no inflation)
 - EVM Compatible: Run Ethereum smart contracts
