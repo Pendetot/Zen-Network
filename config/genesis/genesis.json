@@ -1,0 +1,64 @@
+{
+  "genesis_time": "2025-11-09T22:08:06Z",
+  "chain_id": "zennetwork-mainnet-1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": 104857600,
+      "max_gas": 100000000,
+      "time_iota_ms": 3000
+    },
+    "evidence": {
+      "max_age_num_blocks": 100000,
+      "max_age_duration": "172800000000000"
+    },
+    "validator": {
+      "pub_key_types": ["bls", "ed25519"]
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "tokenomics": {
+      "total_supply": "1000000000000000000000000000",
+      "is_fixed": true,
+      "minting_disabled": true,
+      "burn_enabled": true,
+      "community_allocation": "400000000000000000000000000",
+      "team_allocation": "200000000000000000000000000",
+      "ecosystem_allocation": "200000000000000000000000000",
+      "liquidity_allocation": "100000000000000000000000000",
+      "foundation_allocation": "100000000000000000000000000"
+    },
+    "halving": {
+      "total_pool": "200000000000000000000000000",
+      "initial_reward": "1000000000000000000000",
+      "halving_factor": 0.95,
+      "halving_interval": 7889400,
+      "adaptive_enabled": true
+    },
+    "fees": {
+      "base_fee": "100000000000000",
+      "burn_percent": 20,
+      "min_tip": "0",
+      "max_tip": "1000000000000"
+    },
+    "consensus": {
+      "consensus_type": "pos_poh_hybrid",
+      "block_time": 3000,
+      "finality_time": 1800,
+      "shards": 64
+    },
+    "security": {
+      "post_quantum_enabled": true,
+      "mpc_enabled": true,
+      "anomaly_detection": true,
+      "min_validator_stake": "1000000000000000000000"
+    },
+    "oracle": {
+      "ai_enabled": true,
+      "ml_predictions": true,
+      "update_interval": 300,
+      "data_sources": ["coinbase", "coingecko", "polygon"]
+    },
+    "accounts": []
+  }
+}

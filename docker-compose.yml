@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  zennetwork-node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zennetwork-mainnet
+    ports:
+      - "26656:26656"  # P2P
+      - "26657:26657"  # RPC
+      - "8545:8545"    # JSON-RPC
+      - "8546:8546"    # WebSocket RPC
+    volumes:
+      - zennetwork_data:/root/.zennetwork
+      - ./config:/app/config
+    environment:
+      - ZENN_BENCHMARK=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "./zennetworkd", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  zennetwork-explorer:
+    image: zennetwork/explorer:latest
+    container_name: zennetwork-explorer
+    ports:
+      - "3000:3000"
+    depends_on:
+      - zennetwork-node
+    environment:
+      - RPC_URL=http://zennetwork-node:26657
+
+  zennetwork-monitor:
+    image: prom/prometheus:latest
+    container_name: zennetwork-monitor
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+
+  zennetwork-grafana:
+    image: grafana/grafana:latest
+    container_name: zennetwork-grafana
+    ports:
+      - "3030:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      - zennetwork-monitor
+
+volumes:
+  zennetwork_data:
+  prometheus_data:
+  grafana_data:
