@@ -479,6 +479,4 @@ The project's focus on innovation, sustainability, and community-driven developm
 ---
 
 **For more information**
-- Website: https://zennetwork.org
-- Documentation: https://docs.zennetwork.org
 - GitHub: https://github.com/Pendetot/Zen-Network
